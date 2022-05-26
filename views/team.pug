@@ -1,0 +1,76 @@
+extends layout
+block link
+  -var selected = 'Team';
+
+block content
+  -var teamImages = {'FBR':'/images/fbr2.jpg', 'FARK':'/images/fark2.jpg', 'FMRK':'/images/fmrk1.jpg', 'JDM':'/images/JDM_photo.jpg'};
+  -var teamSrc = [{title:'FBR',ref:'#FBRa',src:'/images/fbr2.jpg'}, {title:'FARK',ref:'#FARKa',src:'/images/fark2.jpg'},{title:'FMRK',ref:'#FMRKa',src:'/images/fmrk1.jpg'},{title:'JAD',ref:'#JADa',src:'/images/JDM_photo.jpg'}];
+  
+  div.c-w.px-3
+    div(class='row ')
+      div(class='col-sm-8')
+        h3 Our people
+        p  Here you have a brief description of our specialized profesionals.
+        p  They have worked in differente projects, in different fields:
+      ul.ul-horiz.li-blink-hdr.span(id=device)
+          li Software
+          li Controls
+          li Industrials
+          li Programming
+          li Electronics
+  
+  div(id=bodystart)
+    ul.ul-horiz
+        each val in teamSrc
+          li.li-horiz
+            a.selected(href=val.ref, title=val.title)
+              img.img-rd-50.sideMenuImg(src= val.src, title=val.title alt=val.title + "photo")
+           
+    div(style='margin-left:15px; margin-right:0px; width:100%')
+        div.tr-team(id='FBR' class='row px-0' style="display:run-in; width:100%; box-sizing: border-box")
+          div.team-disp-content(class='col-sm-11 px-1' style='display:inline-grid; ')
+                a#FBRa 
+                h6 #[em MSc. Frangil B. Ramírez ]
+                p(style="text-align:justify; padding-left:5px")  Systems engineer with postgraduate degree in  
+                  |  #[i #[strong Advanced Control]] with over twenty years of working expirience as a controls engineer, researcher and university lecturer 
+                  |  in software engineering. 
+                  br
+                  | Has  successfully developed projects in 
+                  strong Germany, Romania and Venezuela.
+                  br 
+                  |  The expertise in design, development, implementing and integrating systems using various 
+                  |  technologies and methodologies has been applied to industrial production and also to research experiments.
+          div(class='col-sm-1 px-0' style='display:inline-block; padding:1em')
+                img.img-rd-50.hide_hdr.team-disp-content(src= '/images/fbr2.jpg', title='FBR', alt='FBR' + "photo" style='padding-right:0px; max-width:100%; height:auto')
+                
+        div.tr-team(id='FARK' class='row px-0' style="display:run-in; width:100% box-sizing: border-box;")
+         a#FARKa
+         div.team-disp-content(class='col-sm-1 px-1' style='display:inline-block; padding:1em')
+              img.img-rd-50.hide_hdr.img-responsive(src= '/images/fark2.jpg', title='FARK', alt='FARK' + "photo" style='padding-right:5px; max-width:100%; height:auto') 
+         div(class='col-sm-11 px-3' style='display:inline-block; padding:1em')
+              h6  Alicia Koteich
+              p(style="text-align:justify; padding-left:5px") Industrial engineer with expirience in clean energy projects.
+
+        div.tr-team(id='FMRK' class='row' style="display:run-in; width:100%; box-sizing: border-box;")
+          div.team-disp-content(class='col-sm-11')
+            a#FMRKa 
+            h6() Manuel Ramirez
+            p(style="text-align:justify;; padding-left:5px") Bachelor of Science candidate (Math & IT) with programming expierence in 
+              |  Python, Lua, and HTML, Relational Databases experience, Calculus and Linear Algebra instruction, 
+              br  
+              | English speaker combine with Portuguese knowledge.
+          div(class='col-sm-1' style='display:inline-block; padding:1em')
+              img.img-rd-50.hide_hdr.team-disp-content(src= '/images/fmrk1.jpg', title='FMRK', alt='FMRK' + "photo" style='padding-right:5px; max-width:100%; height:auto')
+
+        div.tr-team(id='JAD' class='row' style="display:run-in; width:100%; box-sizing: border-box;")
+         a#JADa
+         div.team-disp-content(class='col-sm-1 px-1' style='display:inline-block; padding:1em')
+            img.img-rd-50.hide_hdr.team-disp-content(src= '/images/JDM_photo.jpg', title='JDM', alt='JDM' + "photo"  style='padding-right:5px; max-width:100%; height:auto')
+         div(class='col-sm-11 px-3' style='display:inline-block; padding:1em')
+            h6 Juan A. Di Sarli
+            p(style="text-align:justify; padding-left:5px") Electronic Engineer with experience in Siemens PLC and HMI programming, Intouch SCADA Systems, 
+              br
+              | LabVIEW and C Programming for dsPIC.
+            span.blink.span and #[blink RASPBERRY PI TECHNOLOGY #[strong EXPERT]]
+
+

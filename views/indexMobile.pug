@@ -1,0 +1,56 @@
+extends layout
+block variables
+  
+block link
+  -var selected = 'Home';
+  - 
+    var projectsSubjects = [
+     'Control systems: Temperature, High Voltage, LN2', 
+     'Monitoring control systems for the LN2 system', 
+     'Web sites: Linear Accelerator components, Data Archiving', 
+     'Integration: EPICS, InfluxDB, Grafana, Custom', 
+     'Systems Design'
+     ];
+  
+block content 
+  //- div.hdr-content.px-3
+  //-   // h3.c-w= title
+  //-   //- div(style="text-align:center") 
+  //-   //-   span.blink.span projects - codes - control systems - integration 
+  //-   h5.c-w Frangil Ramirez MSc. Software Engineering
+  //-   p  
+  - var bodystart = "body-start-" + device
+  div.section(id=bodystart style=' margin-left:15px; width:100%')
+    div 
+      h3  Resume
+      p  Specialized in control systems and systems intgration with a broad experience in different fields: 
+      p  Nuclear Physics, Aluminium Smelters, Lecturer in Softaware Engineering, Software Project Managment 
+        | and Web-based Applications.
+      p Hands-on experience with hardware and software technologies like pc104, opto22, NI controllers, 
+        | PLC integration, Raspberri PI, under Linux and Windows using as programming languages C, C++, 
+        | Python, LabView, JavaScript, batch/bash scripting and modeling with UML under Agile process.
+      P   Relational and non-relational Data bases.
+      P   Worked recently in temperature and voltage control systems, using different devices as DAQ and 
+        | integrating them with monitoring and notification system using custom and market tools, with 
+        | commercial and custom communication protocols.
+      p   Integration with EPICS and customs protocols, serial and networking.
+      P   The portafolio includes projects in production stage:
+      br
+    div  
+      ul.ul-horiz
+        each val in projectsSubjects
+          div.coloured-li.li-ctr
+            li.li-ctr
+              div #{val}
+          br
+  //- device=  device
+  if (device )
+    - title = title
+    - device = device
+    - contact = contact 
+    - req = req
+    //p  #{device}
+ 
+    include projectsFB
+    include FullResume
+    include contactInfo

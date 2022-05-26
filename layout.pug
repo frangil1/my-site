@@ -1,0 +1,100 @@
+doctype html
+
+html(lang='en')
+  head
+    title= title
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css", integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z", crossorigin="anonymous")
+    script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js", integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj", crossorigin="anonymous")
+    script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js", integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV", crossorigin="anonymous")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
+  style().
+    if(device === 'Mobile')
+      ul{
+        display:         flex;
+        list-style-type: none;
+        width:           300px;
+        flex-wrap:       wrap;
+      }
+      li{
+        display:inline;
+      }
+  body
+    h1= title
+    hr
+
+    div(class='container-fluid-ep-1')
+      div(class='row')
+        div(class='col-sm-2' 'col-ep-2')
+         unless(device === 'Mobile')
+          block sidebar
+            h5 This is our site
+            ul(class='sidebar-nav')
+              li(display='inline')
+                a(href='/') Home 
+                br
+              li
+                a(href='/home/projects') Projects
+                br
+              li
+                a(href='/home/authors') Team
+                hr
+         else
+            h5 This is our site
+            ul
+              li(display='inline')
+                a(href='/') Home 
+                br
+              li
+                a(href='/home/projects') Projects
+                br
+              li
+                a(href='/home/authors') Team
+                hr
+        if(device === 'Mobile')
+         div(class='col-sm-13') 
+           block content
+        else
+         div(class='col-sm-10') 
+           block content
+        
+         br
+         br
+         br
+         br
+         p
+         |
+         |
+         |
+         p This is a line with #[em some emphasis] and #[strong strong text] markup.
+         p This line has un-escaped data: !{'<em> is emphasised</em>'} and escaped data: #{'<em> is not emphasised</em>'}.
+           | This line follows on.
+         p= 'Evaluated and <em>escaped expression</em>:' + title
+
+         <!-- You can add HTML comments directly -->
+         // You can add single line JavaScript comments and they are generated to HTML comments
+         //- Introducing a single line JavaScript comment with "//-" ensures the comment isn't rendered to HTML
+
+         p A line with a link
+         a(href='/routes/fbr.html') Frangil Bradimir Ramirez CH.
+         br
+         a(href='/routes/fmrk.html') Frangil Manuel Ramirez K.
+         br
+         a(href='/routes/fark.html') Francis Alicia Ramirez K.
+
+         #container.col
+         if title
+           p A variable named "title" exists.
+         else
+           p A variable named "title" does not exist.
+         p.
+           Pug is a terse and simple template language with a
+           strong focus on performance and powerful features.
+
+         h2 Generate a list
+         ul
+          each val in ['Skill 1','Skill 2', 'Skill 3', 'Skill 4', 'Skill 5']
+            li= val
+            br

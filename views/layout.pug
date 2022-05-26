@@ -1,0 +1,145 @@
+block variables
+doctype html
+
+html(lang='en es')
+  head
+    //title= title
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css", integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z", crossorigin="anonymous")
+    script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js", integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj", crossorigin="anonymous")
+    script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js", integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV", crossorigin="anonymous")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
+  style(type="text/css").
+    img{
+      width: 75px;
+      margin: 3px;
+    }
+    .imgLogo{
+      width: 35px;
+      margin: 2px;
+    }
+    
+    
+  block link
+    -var selected = 'home'; //default
+  -var menu = { 'Home': '/', 'Projects': 'projects', 'Team': '/home/authors', 'Contact': '/home/contact', 'Contact1': '/home/contact', 'Contact2': '/home/contact' };
+  //-var sideMenu = {'/home':'/images/homeIcon.png', '/home/projects':'/images/PLCsNet.jpg', '/home/authors':'/images/teamIcon.jpg', '/home/contact':'/images/contactIcon.png'};
+  -var sideMenu = [{title:'Home',ref:'/',src:'/images/homeIcon.png'}, {title:'Projects',ref:'#Portafolio',src:'/images/PLCsNet.jpg'},{title:'CV',ref:'#FullCv',src:'/images/teamIcon.jpg'},{title:'Contact',ref:'#Contact',src:'/images/contactIcon.png'}];
+  
+  body(id=device)
+    div(style='text-align:center')
+      nav.navbar.navbar-expand-md.navbar-dark.bg-dark.navbar-toggleable-md.navbar-faded.fixed-top
+        button.navbar-toggler.collapsed(id="collapsedButton" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation")
+          span.sr-only Toggle navigation
+          span.navbar-toggler-icon.menu-icon-size
+          span.my-1.mx-2.close.menu-icon-size ᐃ
+        
+        if (device === 'Mobile')
+            ul.nav.navbar-nav.mr-auto.mx-auto
+              <li class="nav-item"><a class="nav-link" href="#">!{selected}</a></li>
+            </ul>
+            a.nav-link.fixed-right(href='') login
+        
+        a.navbar-brand(href='/').justify-content-center
+          img(class="imgLogo" src= "/images/fr Logo-3.jpg", title="Home", alt="Logo photo")
+
+        #main-navbar.collapse.navbar-collapse
+          ul.navbar-nav.mr-auto.horiz_list.justify-content-center
+            each val in sideMenu
+              if selected === val.title
+                li.nav-item.active
+                  a.nav-link(href=val.ref, title=val.title)= val.title 
+              else
+                  a.nav-link(href=val.ref, title=val.title)= val.title 
+            
+            //- li.nav-item.dropdown
+            //-   a#dropdown01.nav-link.dropdown-toggle(href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") Fmrk
+            //-   .dropdown-menu
+            //-     a.dropdown-item(href="/fmrk/home") Home
+            //-     a.dropdown-item(href="/fmrk/about") About
+            //-     a.dropdown-item(href="/fmrk/services") Services 
+            //-     a.dropdown-item(href="/#") Contact
+        unless (device === 'Mobile')
+          a.nav-link.fixed-right(href='') login
+    div.
+      <script> 
+        $('#main-navbar').on('show hide', function(e){
+          if(!$(this).is(e.target)) return;
+          $('#collapsedButton').toggleClass('collapse icon-arrow-up', 200);});
+      </script>
+           
+    div(id="header-blank")
+    
+      
+    //h3(style='padding-top:50px')= title
+    
+    
+    //-
+      <!-- Button to trigger modal -->
+      <a href="#myModal" role="button" class="btn" data-toggle="modal" style='padding-top:50px'>Launch demo modal</a>
+     
+      <!-- Modal -->
+      <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3 id="myModalLabel">Modal header</h3>
+        </div>
+        <div class="modal-body">
+          <p>One fine body…</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+          <button class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+              
+    div.hdr-content-start.c-w.hdr-content
+      div(class='row' style='text-align:left')
+        div( style='display:inline-block; padding-top:35px; padding-left:15px; vertical-align:middle')
+          h5.c-w MSc. Frangil Ramirez 
+          p Software Engineering
+        div(style='display:inline-block; vertical-align:middle; margin-left:155px; padding-top:35px;')
+            img.img-rd-50(src= '/images/fbr2.jpg', title='FBR', alt='FBR' + "photo" style='padding-right:0px; max-width:100%; height:auto')
+        div(id='conv-ul' style='display:inline-block; vertical-align:middle; padding-top:15px;')
+            ul.ul-horiz.span.li-blink-hdr(id=device)
+              li Software Engineering
+              li Control Systems
+              li Web-DB
+              li Integration 
+    if (device )
+      div.container.px-0
+        div(class='row')
+          div.hide_hdr(id='side_bar' class='col-sm-2' style='margin-top:50px')
+           block sidebar
+             div
+              h5 
+              nav.sideMenuImg
+                ul(class='sidebar-nav' style='margin:35px')
+                  each val in sideMenu
+                    li(style='list-style-type:none')
+                      if selected === val.title
+                        a.selected(href=val.ref, title=val.title)
+                          img.sideMenuImg(src= val.src, title=val.title alt=val.title + "photo")
+                        br
+                        br
+                      else
+                        a(href=val.ref, title=val.title)
+                          img.sideMenuImg(src= val.src, title=val.title, alt=val.title + "photo")
+                        br
+                        br
+                    
+                  hr
+                
+          div(class='col-sm-10 px-0' style='padding-top:75px')
+            block content
+            
+    //- else
+    //-   div.header-over-lap.px-0(id="phone" style='margin-top:50px ')
+    //-     block content
+         
+        
+
+
+         

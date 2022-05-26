@@ -1,0 +1,114 @@
+if (device === 'Mobile')
+  include layout
+block link
+  -var selected = 'Projects';
+
+block content
+  -var bodystart = "body-start-" + device
+  div.c-w.hdr-content.px-3
+    div(class='row')
+      div(class='col-sm-8')
+        h3 Portafolio
+        p  Here you have a brief description of my "in production" projects.
+        p  Several projects in different fields:
+      //- div(id='conv-ul' class='col-sm-4')
+      //-  ul.ul-horiz.span.li-blink-hdr(id=device)
+      //-   li Nuclear physics
+      //-   li Aluminum
+      //-   li Web-BD
+      //-   li Electronics
+  div(id=bodystart)
+    ul.ul-horiz
+        li.li-horiz C++/CLI-EPICS 
+        li.li-horiz * LabView-EPICS 
+        li.li-horiz * C-QNX-PC104-Python 
+        li.li-horiz * Electronics
+    if (device === 'Mobile') 
+     div(id='mob-proj-tab')
+      table
+        tr
+          td
+            ul.ul-horiz.mx-0
+              li.li-horiz.pr-1
+                img.imgSize(class='imgSize' src= "/images/VC.jpg")
+              li.li-horiz.pr-1
+                img.imgSize(src= "/images/VC_NetAppArq.jpg")
+            //a(href='/images/VC_NetAppArq.jpg')
+              img(class='imgSize' src= "/images/VC.jpg")
+        tr
+          td
+            p(style="text-align:justify") High voltage control application for Nuclear Physics, using EPICS, C++/CLI, C#, Visual Studio
+   
+        tr
+          td
+            ul.ul-horiz.mx-0(type='none')
+              li.li-horiz.pr-1
+                img.imgSize(src= "/images/LN2.jpg")
+              li.li-horiz.pr-1
+                img.imgSize(src= "/images/projLN2SoftArq.jpg")
+              //a(href='/images/projLN2SoftArq.jpg')
+              //img.imgSize(src= "/images/LN2.jpg")
+              
+        tr
+          td(style="border-bottom-style: outset") 
+            p(style="text-align:justify")  Cooling and heating control with LN2 and resistant applied heat process, using LabView, Python and EPICS
+   
+        tr
+          td
+            ul.ul-horiz.mx-0(type='none')
+              li.li-horiz.pr-1
+                img.imgSize(class='imgSize' src= "/images/PotCtrl.jpg")
+              li.li-horiz.pr-1
+                img.imgSize(src= "/images/Pot_Control.jpg")
+            //a(href='/images/Pot_Control.jpg')
+              img.imgSize(src= "/images/PotCtrl.jpg")
+        tr
+          td(style="border-bottom-style: outset") 
+            p(style="text-align:justify") Design and develop complex control systems for Aluminum Smelters: A distributed Control System for High Amperage Aluminum Reduction Cells, using C, C++, linux, Opto 22 on a pc104 industrial PCB.
+        tr
+          td
+            ul.ul-horiz.mx-0(type='none')
+              li.li-horiz.pr-1
+                img.imgSize(class='imgSize' src= "/images/OtherProjs.jpg")
+              li.li-horiz.pr-1
+                img.imgSize(src= "/images/CtrlDsgn.jpg")
+            //a(href='/images/CtrlDsgn.jpg')
+              img.imgSize(src= "/images/OtherProjs.jpg" )
+        tr
+          td(style="border-bottom-style: outset") 
+            p Consultant for Control Systems: anode baking furnaces in an aluminum plant. <br>
+                 | A DCS project (PLC and DC) for an aluminum casting plant.
+            p Control system design: rod sanding machine in an aluminum plant .
+            p Computer vision System for Sign Language recognition using Python, OpenCV and Keras.
+
+
+          
+    else 
+     div(id='desk-proj-tab')
+      table
+        tr
+          td
+            a(href='/images/VC_NetAppArq.jpg')
+              img(src= "/images/VC.jpg")
+          td(style="text-align:justify") High voltage control application for Nuclear Physics, using EPICS, C++/CLI, C#, Visual studio
+        tr
+          td
+            a(href='/images/projLN2SoftArq.jpg')
+              img(src= "/images/LN2.jpg")
+          td(style="text-align:justify")
+            span Cooling and heating control with LN2 and resistant applied heat process, using LabView, Python and EPICS
+        tr
+          td
+            a(href='/images/Pot_Control.jpg')
+              img(src= "/images/PotCtrl.jpg")
+          td(style="text-align:justify")
+            span Design and develop complex control systems for Aluminum Smelters: A distributed Control System for High Amperage Aluminum Reduction Cells, using C, C++, linux, Opto 22 on a pc104 industrial PCB.
+        tr
+          td
+            a(href='/images/CtrlDsgn.jpg')
+              img(src= "/images/OtherProjs.jpg" )
+          td(style="text-align:justify")
+            p - Consultant for Control Systems: anode baking furnaces in an aluminum plant. 
+                A DCS project (PLC and DC) for an aluminum casting plant.
+            p - Control system design: rod sanding machine in an aluminum plant .
+            p - Computer vision System for Sign Language recognition using Python, OpenCV and Keras.

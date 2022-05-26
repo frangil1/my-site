@@ -1,0 +1,12 @@
+Message: Another test 1
+ 
+Reply to:  frangil.ramirez@eli-np.ro
+------------------------------------------------------------
+Message: Another test 2
+ 
+Reply to:  frangil.ramirez@eli-np.ro
+------------------------------------------------------------
+Message: Ok for today 1
+ 
+Reply to:  frangil.ramirez@eli-np.ro
+------------------------------------------------------------

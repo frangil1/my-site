@@ -1,0 +1,123 @@
+:root {
+  --primary-color: rgba(15, 15, 50, 0.95);
+  --overlay-color: rgba(34, 39, 91 , 0.94);
+  --menu-speed: 0.75s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.8;
+}
+
+.container {
+  max-width: 960px;
+  margin: auto;
+  overflow: hidden;
+  padding: 0 3rem;
+}
+
+.backBtn {
+  position: fixed;
+  top: 0rem;
+  left: 5.5rem;
+}
+
+.profilePic {
+  position: absolute;
+  left: 76.5rem;
+  top: 0.4rem;
+}
+
+.servicesInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  padding: 4rem;
+  margin-left: 7.5rem;
+  margin-top: 2.5rem;
+  margin-right: 3rem;
+}
+
+.servicesInfo ul {
+  font-size: 1.3rem;
+}
+
+.aboutInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  padding: 4rem;
+  margin-left: 4rem;
+  margin-top: 2.5rem;
+  margin-right: 3rem;;
+}
+
+.aboutInfo ul {
+  font-size: 1.3rem;
+}
+
+.showcase {
+  background: var(--primary-color);
+  color: #fff;
+  height: 100vh;
+  position: relative;
+}
+
+.showcase:before {
+  content: '';
+  background: url('frLogo-3.jpg') no-repeat center center/cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.showcase .showcase-inner {
+  display: flex;
+  /*flex-direction: column;*/
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 10%;
+}
+
+.showcase h1 {
+  font-size: 3rem;
+  padding: 1rem;
+}
+
+.showcase p {
+  font-size: 1.3rem;
+  padding: 1.5rem;
+  margin-top: 3rem;
+  margin-bottom: 0rem;
+  margin-left: 5rem;;
+}
+
+.btn {
+  display: inline-block;
+  border: none;
+  background: var(--overlay-color);
+  color: #fff;
+  padding: 0.5rem 1.1rem;
+  margin-top: 1rem;
+  transition: opacity 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.btn:hover {
+  opacity: 0.7;
+}
+

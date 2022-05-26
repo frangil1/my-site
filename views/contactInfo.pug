@@ -1,0 +1,81 @@
+//-var bodystart = "body-start-" + device;
+a#Contact
+p
+div.section
+  div.px-3(class='row ')
+    div
+        hr
+    div.hide1.px-3
+        h3 Contact ...
+        p
+        p Explain in detail the project you need by just fill the form below, and I will email back to you: 
+        a(id='contact' onclick="document.getElementById('contactModal').style.display='block'" href="#" title="Contact" data-toggle="modal" data-target="contactModal") Contact
+    if (contact=='get')
+        div 
+            form#ctct-form(class="form-signin" method="POST" action="/users/contact" )
+                div(id="contactModal" class='container modal form-contact hidden ' style='display:block')
+                  div
+                    div.modal-header
+                        h4.modal-title(id=id+"Label")= title
+                        input#h-input(type="hidden" name="h-input" value="" class="form-control")
+                        button.close(type="button",data-dismiss="contactModal" onclick="document.getElementById('contactModal').style.display='none'")
+                            span(aria-hidden="true") &times;
+                            span.sr-only Close
+                    div.modal-body(style='text-align:left')      
+                        label( for="name") Name and last name
+                        label( for="name" class="sr-only") Email address
+                        input(type="text" name="name" id="name" class="form-control" placeholder="Enter your name" )
+                        //-input email
+                        label( for="inputEmail") Email adrdress
+                        label( for="inputEmail" class="sr-only") Email address
+                        input(type="email" name="emailaddss" id="inputEmail" class="form-control" placeholder="Email address" )
+                        //-input request
+                        label( for="request") Enter request description
+                        label( for="request" class="sr-only") request
+                        textarea(name="request" id="request" class="form-control" placeholder="Enter descrption"  cols="100" rows="5" )
+                        
+                        //p You have two options to close this modal:
+                        //p Click on the "x" or click anywhere outside of the modal!
+                    div(class="g-recaptcha" data-sitekey="6Le2kVcaAAAAALfFGO007BoZQhHn-aYH2lFfU6F7") 
+                    div.modal-footer
+                        input(class=buttonClass type="reset" value="Reset")
+                        p(style="display:inline")   Click to >> 
+                        //button#checkSubmit(type="button" onclick="submitFunct()") Send ...
+                        button#submitBtn(class=buttonClass type="submit" onclick="submitFunct()") Send...
+                    
+    else
+            div.container(style='margin-top:50px')
+            h3 Thanks #[em #{req.body.name}] for your contact information
+            h4 We'll be in contact ASAP at ... #[em #{req.body.emailaddss}] on #[em #{req.ip}]
+            br
+            p Regarding:
+            p Request: + #[em #{req.body.request}]
+
+    br 
+    p 
+  
+//script(src!='https://www.google.com/recaptcha/api.js') 
+script.
+    function submitFunct() {
+    if(document.getElementById("h-input").value.length == 0){
+        document.getElementById('ctct-form').submit();
+        alert('Submitted');
+    }
+    else{
+        alert('No Submitted');
+    }  
+    }
+    
+  //- script 
+    // Get the modal 
+      var modal = document.getElementById('contactModal');
+
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+       if (event.target == modal) {
+        modal.style.display = "none";
+       }
+      }  
+
+  
+  

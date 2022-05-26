@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<header style="text-align:center"> Frangil Ramírez resumé</header>
+<style>
+ image {
+     display: inline;
+     width: 110px;
+     height: 130px;
+ }
+ h1, h3{
+     display: inline;
+}
+ table{
+ border: 1px solid #000;
+ }
+ table.center {
+    margin-left:auto;
+    margin-right:auto;
+  }
+ table tr.Pers_info {
+  h1, h3{
+     display: inline;
+  }
+  border-collapse: collapse;
+ }
+ .w {
+  width: 35px;
+  padding-right:20px;
+ }
+ .w1 {
+  width: 800px;
+ }
+ .float-left-area  {
+ width: 70%;
+ float: left;
+ }
+
+.float-right-area {
+ width: 30%;
+ float: left;
+ }
+
+.inner-left  {
+ padding: 5px 5px 5px 5px;
+ margin-right: 10px;
+ border: #999999 0px solid;
+ min-height: 60px;
+ }
+
+.inner-right  {
+ font-size: 11px;
+ padding: 5px 5px 5px 5px;
+ border: #999999 0px solid;
+ min-height: 60px;
+ }
+
+.clear-floated  { clear: both; height: 1px; font-size: 1px; line-height: 1px; padding: 0; margin: 0; }
+
+</style>
+<body id="body">
+<script type="text/javascript" src="lib/jquery1.11.1.js?ver=1.0.0"></script>
+<script src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.js'></script>
+<!-- Script -->
+<script type="text/javascript">
+ $(document).ready(function(){
+  $("body").bind("copy",function(e) { e.preventDefault(); return false; });
+  $("body").bind("paste",function(e) { e.preventDefault(); return false; });
+ });
+</script>
+
+<div class="float-left-area">
+<div class="inner-left">
+<p style="text-align:justify; text-justify:inter-word; margin:0px 0px; padding:0px;">
+      Testing on the left side</p>
+Left content. Add your main body of content to this side.
+<table class="center">
+<tr><td row span="2"> <h1 style="display: inline; vertical-align:middle;margin:0px 150px;align:right">Frangil B. Ramírez CH. </h1>
+                      <h4 align="center"> Resumé</h4></td>
+    <td> <img title="FR photo" src="IMG_3055.jpg" alt="Photo" width="110" height="130" style="display:inline-block; vertical-align:middle;" align="middle"/> </td>
+</tr>
+</table>
+<hr style="border-width:0.25; color:lightgray">
+
+<table class="center" style="table-layout: fixed; border-collapse: collapse;">
+ <tr class="Pers_info">
+  <td class="w" valign="top" style="white-space: nowrap; color:DarkBlue; margin:50px 150px;">PERSONAL INFORMATION</td>
+  <td class="w1" style="text-align:justify; text-justify:inter-word;">
+    <h3>MSc. Frangil B. Ramirez CH.</h3>
+    <p style="white-space: nowrap; margin:0px 0px; padding-right:0px;">No. 30, Reactorului Street, Magurele, Ilfov, 077125, Bucharest (Romania) <br>framicon@gmail.com, frangil.ramirez@eli-np.ro, +40 (772) 011841</p>
+  </td>
+ </tr>
+ <tr class="Pers_info" style="width:50px;">
+  <td valign="top" style="white-space: nowrap; color:DarkBlue; margin:0px 0px;">PERSONAL STATEMENT</td>
+  <td>
+    <p style="text-align:justify; text-justify:inter-word; margin:0px 0px; padding:0px;">
+      Systems engineer specialized in advanced control with over twenty years of
+      experience working as a controls engineer, researcher and university lecturer in
+      software engineering. The expertise in design, development, implementing and
+      integrating systems using various technologies and methodologies has been
+      applied to industrial production and also to research experiments. Actually working
+      as a controls engineer responsible for the controls of the gamma-beam system at
+      ELI-NP (Extreme Light Infrastructure, Nuclear Physics), Romania.</p>
+  </td>
+ </tr>
+ <tr class="Pers_info">
+  <td valign="top" style="white-space: nowrap; color:DarkBlue; margin:50px 150px;">WORK EXPERIENCE</td>
+ </tr>
+ <tr>
+  <td valign="top" style="white-space: nowrap; color:SteelBlue; margin:50px 150px; padding-left:40px;">2018Present</td>
+  <td>
+    <p style="display:inline; white-space: nowrap; margin:0px 0px; padding:0px;">
+      <span style="color:DarkCyan">Controls Engineer</span>, <b>ELI-NP</b>, Magurele (Romania)<br>
+                                    Responsible for the controls of:</p>
+    <ul style="list-style-type:disc; margin:0px 0px; padding-top:5px;  text-justify:inter-word;">
+         <li>The GBS (gamma-beam system). </li>
+         <li style="text-align:justify; text-justify:inter-word;">
+  Experimental setups of the gamma driven experiments department.
+           (cooling and heating control with LN2 and resistant applied heat process).</li>
+         <li style="text-align:justify; text-justify:inter-word;">
+  Collaboration control activities between ELI-NP (Romania)  GSI/FAIR (Germany)
+           for developing voltage controls applications for Nuclear Physics.</li>
+    </ul>
+  </td>
+ </tr>
+ <tr>
+  <td valign="top" style="white-space: nowrap; color:SteelBlue; margin:50px 150px; padding-left:40px;">1993-2018</td>
+  <td>
+    <p style="display:inline; white-space: nowrap; margin:0px 0px; padding:0px;">
+      <span style="color:DarkCyan">Computer science lecturer</span>, <br>
+                               Universidad Católica Andrés Bello, Puerto Ordaz (Venezuela)<br>
+                                    Universidad Experimental de Guayana, Puerto Ordaz (Venezuela)</p>
+    <ul style="list-style-type:disc; margin:0px 0px; padding-top:5px;  text-justify:inter-word;">
+         <li>C/C++ programming. </li>
+         <li>Software engineering.</li>
+    </ul>
+<p style="display:inline; white-space: nowrap; margin:0px 0px; padding:0px;">
+      <span style="color:DarkCyan">Technical Development Specialist/researcher.</span>, <br>
+                               <i>CVG Venalum, Puerto Ordaz (Venezuela)</i></p>
+    <ul style="list-style-type:disc; margin:0px 0px; padding-top:5px;  text-justify:inter-word;">
+         <li style="text-align:justify; text-justify:inter-word;">
+Designing and developing complex systems for Aluminum Smelters:
+         A distributed Control System for High Amperage Reduction Cells, improving the overall efficiency of the production process.</li>
+         <li style="text-align:justify; text-justify:inter-word;">
+Installation Consultant of Control System for baking furnaces in the anode plant. A DCS project (PLC and DC).</li>
+<li style="text-align:justify; text-justify:inter-word;">
+Process Control Engineer, responsible for the improvement of aluminum production processes.</li>
+    </ul>
+<p style="display:inline; white-space: nowrap; margin:0px 0px; padding:0px;">
+      <i><b>In collaboration between CVG Venalum-Alcasa, and CVG Venalum-Cabelum.</b></i></p>
+    <ul style="list-style-type:disc; margin:0px 0px; padding-top:5px;  text-justify:inter-word;">
+         <li style="text-align:justify; text-justify:inter-word;">
+Design of Control System for aluminum wire-drawing machines. OPTO22-PID’s.</li>
+         <li style="text-align:justify; text-justify:inter-word;">
+Design and development of UI and Control Systems for the anode plant (programming with block diagrams),
+Vertical-casting plant, and baking furnace. PLC and DC.</li>
+    </ul>
+  </td>
+ </tr>
+ <tr class="Pers_info">
+  <td valign="top" style="white-space: nowrap; color:DarkBlue; margin:50px 150px;">EDUCATION</td>
+ </tr>
+ <tr>
+  <td valign="top" style="white-space: nowrap; color:SteelBlue; margin:50px 150px; padding-left:40px;">1996-1997</td>
+  <td>
+    <p style="display:inline; white-space: nowrap; margin:0px 0px; padding:0px;">
+      <span style="color:DarkCyan">MSc. in Advanced Control</span>, <br>
+                               University of Manchester Institute of Science and Technology - UMIST, Manchester (United Kingdom).<br>
+                                    Financed by Conicit-CVG VENALUM, loan-scholarship for Master´s degree.</p>
+ </tr>
+ <tr>
+  <td valign="top" style="white-space: nowrap; color:SteelBlue; margin:50px 150px; padding-left:40px;">1986-1993</td>
+  <td>
+    <p style="display:inline; white-space: nowrap; margin:0px 0px; padding:0px;">
+      <span style="color:DarkCyan">Systems engineer</span>, <br>
+                               Universidad de Los Andes, Merida (Venezuela)<br>
+                                    Grade: Systems Engineer. First Place, School of Systems Engineering. (1st /42).<br>
+                                    Financed by Lagoven S.A., scholarship for university degree, 1989-1992 and tutor employee.</p></td>
+ </tr>
+ <tr class="Pers_info">
+  <td valign="top" style="white-space: nowrap; color:DarkBlue; margin:50px 150px;">SKILLS</td>
+ </tr>
+ <tr>
+  <td valign="top" style="white-space: nowrap; color:SteelBlue; margin:50px 150px; padding-left:40px;">Mother tongue(s)</td>
+  <td>
+    <p style="display:inline; white-space: nowrap; margin:0px 0px; padding:0px;">
+      Spanish</p></td>
+ </tr>
+ <tr>
+  <td valign="top" style="white-space: nowrap; color:SteelBlue; margin:50px 150px; padding-left:40px;">Foreign language(s)</td>
+  <td>
+    <p style="display:inline; white-space: nowrap; margin:0px 0px; padding:0px;">
+      English</p></td>
+ </tr>
+ <tr>
+  <td valign="top" style="white-space: nowrap; color:SteelBlue; margin:50px 150px; padding-left:40px;">Organisational/Managerial </td>
+  <td>
+    <ul style="list-style-type:disc; margin:0px 0px; padding-top:5px;  text-justify:inter-word;">
+         <li>Leadership in control systems automation projects, programming. </li>
+         <li>Software design and programming leader and guiding in software projects.</li>
+    </ul></td>
+ </tr>
+ <tr>
+  <td valign="top" style="white-space: nowrap; color:SteelBlue; margin:50px 150px; padding-left:40px;">Job-related skills </td>
+  <td>
+    <ul style="list-style-type:disc; margin:0px 0px; padding-top:5px;  text-justify:inter-word;">
+         <li style="text-align:justify; text-justify:inter-word;">
+ Controls applications design, programming, agile, classical methodologies, systems analysis, modeling, lecturer.</li>
+         <li style="text-align:justify; text-justify:inter-word;">
+ Automation, hardware wiring, electronic and electrical circuits diagrams expertise, troubleshooting, international team work,
+ goal oriented independent worker, network and serial communications.</li>
+    </ul></td>
+ </tr>
+ <tr>
+  <td valign="top" style="white-space: nowrap; color:SteelBlue; margin:50px 150px; padding-left:40px;">Tech skills </td>
+  <td>
+    <ul style="list-style-type:disc; margin:0px 0px; padding-top:5px;  text-justify:inter-word;">
+      <li><b>Programming languages:</b> C/C++/CLI, .NET, LabView, Python, Android, SQLite, HTML.</li>
+ <li><b>Operating systems:</b> QNX, Linux, Windows.</li>
+ <li><b>Suites:</b> Visual Studio, LabView, Borland RStudio, Qt.</li>
+ <li style="text-align:justify; text-justify:inter-word;"><b>Others:</b>
+             SCRUM, XP, Traditional, CMMI, OOP, Patterns, MDD, TDD.
+             Fltk with IPC, network and serial communications protocols (EPICS, SNTP, IP UDP), Opto22, Raspberry Pi, OpenVPN,
+PC104, DCS, Circuits diagrams.
+             Adaptive algorithms, motors, Matlab, pc104.</li>
+</ul></td>
+ </tr>
+ <tr>
+  <td valign="top" style="white-space: nowrap; color:SteelBlue; margin:50px 150px; padding-left:40px;">Publications</td>
+  <td>
+    <p style="text-align:justify; text-justify:inter-word;">
+      <b>CVG-VENALUM POTLINE CONTROL AND SUPERVISORY INTEGRATED SYSTEM VEN-PCSIS.</b><br>
+      Light Metals 2010 TMS (The Minerals, Metals & Materials Society) 2010. <br>José Ramones,
+    <i><b>Frangil Ramírez</b></i>, María Colmenares, Jesús Lárez, Jesús González.</p></td>
+ </tr>
+</table>
+</div>
+</div>
+
+<div class="float-right-area">
+<div class="inner-right">
+<p style="text-align:justify; text-justify:inter-word; margin:0px 0px; padding:0px; margin-top:40px">
+      Testing</p>
+Right content. Add your images or sidebar text to this side.
+
+</div>
+</div>
+
+<div class="clear-floated"></div>
+
+</body>
+</html>
+
+
