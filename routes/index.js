@@ -232,7 +232,7 @@ router.post('/users/contact', function(req, res, next) {
       let min = date_ob.getMinutes();
 
       let key = `${date}-${month}-${year}-${hour}:${min}`;
-      textBoxContact[key] = {Message: request, ReplayTo: emailaddss};
+      textBoxContact[key] = {Name: name, Message: request, ReplayTo: emailaddss};
       console.log("JSON.object: " , textBoxContact);
       //textBoxContact = `${textBoxContact}<br/>${message}`;
       fs.appendFile('contacts.txt', message , function (err) {
