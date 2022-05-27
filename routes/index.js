@@ -7,7 +7,7 @@ const request = require('request');
 var device = require('express-device');
 const { response } = require('../app');
 var App = express();
-var textBoxContact = '';
+var textBoxContact = {};
 
  
 //- required by express-recaptcha in order to get data from body or query.
@@ -221,7 +221,20 @@ router.post('/users/contact', function(req, res, next) {
       sendEmailFromNotReplay(request, emailaddss, null);
       var fs = require('fs');
       var message = 'Message: ' + request + `\n \nReply_to:  ` + emailaddss;
-      textBoxContact = `${textBoxContact}<br/>${message}`;
+
+      let ts = Date.now();
+
+      let date_ob = new Date(ts);
+      let date = date_ob.getDate();
+      let month = date_ob.getMonth() + 1;
+      let year = date_ob.getFullYear();
+      let hour = date_ob.getHours();
+      let min = date_ob.getMinutes();
+
+      let key = `${date}-${month}-${year}-${hour}:${min}`;
+      textBoxContact[key] = {Message: request, ReplayTo: emailaddss};
+      console.log("JSON.object: " , textBoxContact);
+      //textBoxContact = `${textBoxContact}<br/>${message}`;
       fs.appendFile('contacts.txt', message , function (err) {
         if (err) return console.log(err);
           console.log('Contact > contacts.txt');
@@ -253,7 +266,10 @@ router.get('/users/contact-1', function(req, res, next) {
 });
 
 
-
+router.get('/users/contact-2', function(req, res, next) { 
+  textBoxContact = {};
+  return res.send(textBoxContact);
+});
 
 
 
