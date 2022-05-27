@@ -5,8 +5,9 @@ var fs = require('fs'); //require filesystem module
 var url = require('url');
 const request = require('request');
 var device = require('express-device');
+const { response } = require('../app');
 var App = express();
-
+var textBoxContact = '';
 
  
 //- required by express-recaptcha in order to get data from body or query.
@@ -185,7 +186,7 @@ router.post('/users/contact', function(req, res, next) {
       if (emailaddss != emailaddss.replace(/[^A-Za-z0-9_.@-]/g,'')){
           emailaddss = '';
       }
-      //request = request.replace(/[^A-Za-z,]/g,'').replace(/['<>]/g, '\\$&');
+      request = request.replace(/[^A-Za-z0-9, ]/g,'').replace(/['<>]/g,'\\$&');
 
       const sendEmailFromNotReplay = (message, mailTo) => {
         let transporter2 = nodemailer.createTransport({
@@ -219,7 +220,8 @@ router.post('/users/contact', function(req, res, next) {
       }
       sendEmailFromNotReplay(request, emailaddss, null);
       var fs = require('fs');
-      var message = 'Message: ' + request + `\n \nReply to:  ` + emailaddss;
+      var message = 'Message: ' + request + `\n \nReply_to:  ` + emailaddss;
+      textBoxContact = textBoxContact + '<br/>' + message;
       fs.appendFile('contacts.txt', message , function (err) {
         if (err) return console.log(err);
           console.log('Contact > contacts.txt');
@@ -244,73 +246,16 @@ router.post('/users/contact', function(req, res, next) {
       //});
 });
 
-//- Francho site: Home --------------------------------------------------
-
-router.get('/fmrk/home', function(req, res, next) { 
-  var q = url.parse(req.url, true); 
-  var filename = __dirname + q.pathname; 
-  
-  var userDevice = isMobile(req); 
-  filename = __dirname + '/fmrk_home.html' // Francho home page 
-  fs.readFile(filename, function(err, data) { //read file index.html in public folder
-    if (err) { 
-      res.writeHead(404, {'Content-Type': 'text/html'}); //display 404 on error 
-      return res.end("404 Not Found: " + __dirname + "and " + q.pathname);
-      console.error('error' + __dirname);
-    }
-    //res.render('contact', { title: 'We will contact you back', device: userDevice });
-    res.writeHead(200, {'Content-Type': 'text/html'}); //write HTML 
-    res.write(data); //write data from index.html 
-    console.log('Page sent: ' + filename); 
-    return res.end();
-  });
+// Replay with info received
+//
+router.get('/users/contact-1', function(req, res, next) { 
+    return res.send(textBoxContact);
 });
 
 
-//- Francho site: About --------------------------------------------------
-
-router.get('/fmrk/about', function(req, res, next) { 
-  var q = url.parse(req.url, true); 
-  var filename = __dirname + q.pathname; 
-  
-  var userDevice = isMobile(req); 
-  filename = __dirname + '/fmrk_about.html' // Francho home page 
-  fs.readFile(filename, function(err, data) { //read file index.html in public folder
-    if (err) { 
-      res.writeHead(404, {'Content-Type': 'text/html'}); //display 404 on error 
-      return res.end("404 Not Found: " + __dirname + "and " + q.pathname);
-      console.error('error' + __dirname);
-    }
-    //res.render('contact', { title: 'We will contact you back', device: userDevice });
-    res.writeHead(200, {'Content-Type': 'text/html'}); //write HTML 
-    res.write(data); //write data from index.html 
-    console.log('Page sent: ' + filename); 
-    return res.end();
-  });
-});
 
 
-//- Francho site: Servicios --------------------------------------------------
 
-router.get('/fmrk/services', function(req, res, next) { 
-  var q = url.parse(req.url, true); 
-  var filename = __dirname + q.pathname; 
-  
-  var userDevice = isMobile(req); 
-  filename = __dirname + '/fmrk_services.html' // Francho home page 
-  fs.readFile(filename, function(err, data) { //read file index.html in public folder
-    if (err) { 
-      res.writeHead(404, {'Content-Type': 'text/html'}); //display 404 on error 
-      return res.end("404 Not Found: " + __dirname + "and " + q.pathname);
-      console.error('error' + __dirname);
-    }
-    //res.render('contact', { title: 'We will contact you back', device: userDevice });
-    res.writeHead(200, {'Content-Type': 'text/html'}); //write HTML 
-    res.write(data); //write data from index.html 
-    console.log('Page sent: ' + filename); 
-    return res.end();
-  });
-});
 
 
 
