@@ -221,7 +221,7 @@ router.post('/users/contact', function(req, res, next) {
       sendEmailFromNotReplay(request, emailaddss, null);
       var fs = require('fs');
       var message = 'Message: ' + request + `\n \nReply_to:  ` + emailaddss;
-      textBoxContact = textBoxContact + '<br/>' + message;
+      textBoxContact = `${textBoxContact}<br/>${message}`;
       fs.appendFile('contacts.txt', message , function (err) {
         if (err) return console.log(err);
           console.log('Contact > contacts.txt');
