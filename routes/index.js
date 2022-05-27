@@ -182,7 +182,7 @@ router.post('/users/contact', function(req, res, next) {
       //import async from 'async';
       // Sanytizing
       var { name, emailaddss, request} = req.body;
-      name = name.replace(/[^A-Za-z,]/g,'');
+      name = name.replace(/[^A-Za-z, ]/g,'');
       if (emailaddss != emailaddss.replace(/[^A-Za-z0-9_.@-]/g,'')){
           emailaddss = '';
       }
@@ -262,7 +262,7 @@ router.post('/users/contact', function(req, res, next) {
 // Replay with info received
 //
 router.get('/users/contact-1', function(req, res, next) { 
-    return res.send(textBoxContact);
+    return res.send([textBoxContact]);
 });
 
 
