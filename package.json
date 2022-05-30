@@ -7,6 +7,9 @@
     "stop": "killall -SIGINT ./bin/www",
     "dev-start": "NODE_ENV=dev nodemon ./bin/www"
   },
+  "engines": {
+    "node": "16.x"
+  },
   "dependencies": {
     "active-menu": "^0.1.2",
     "compression": "^1.7.4",
