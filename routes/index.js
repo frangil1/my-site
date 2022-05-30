@@ -233,7 +233,8 @@ router.post('/users/contact', function(req, res, next) {
 
       let key = `${date}-${month}-${year}-${hour}:${min}`;
       textBoxContact[key] = {Name: name, Message: request, ReplayTo: emailaddss};
-      console.log("JSON.object: " , textBoxContact);
+      contactsReceived[key] = {Name: name, Message: request, ReplayTo: emailaddss};
+      console.log("JSON.object: " , contactsReceived);
       //textBoxContact = `${textBoxContact}<br/>${message}`;
       fs.appendFile('contacts.txt', message , function (err) {
         if (err) return console.log(err);
@@ -262,13 +263,13 @@ router.post('/users/contact', function(req, res, next) {
 // Replay with info received
 //
 router.get('/users/contact-1', function(req, res, next) { 
-    return res.send([textBoxContact]);
+    return res.send([contactsReceived]);
 });
 
 
 router.get('/users/contact-2', function(req, res, next) { 
-  textBoxContact = {};
-  return res.send(textBoxContact);
+  contactsReceived = {};
+  return res.send(contactsReceived);
 });
 
 
