@@ -233,12 +233,13 @@ router.post('/users/contact', function(req, res, next) {
 
       let key = `${date}-${month}-${year}-${hour}:${min}`;
       textBoxContact[key] = {Name: name, Message: request, ReplayTo: emailaddss};
-      contactsReceived[key] = {Name: name, Message: request, ReplayTo: emailaddss};
+      contactsReceived[key] = {Name: name, Message: request, ReplayTo: emailaddss, Date: key};
       let newContact = contactsReceived[key];
       console.log("JSON.object: " , newContact);
       fs.readFile('contacts.json', function (err, data) {
         if (err) {
-          fs.appendFile('contacts.json',  JSON.stringify(newContact), function (err) {
+
+          fs.appendFile('contacts.json',  JSON.stringify(contactsReceived[key]), function (err) {
             //   if (err) return console.log(err);
             //     console.log('Contact > contacts.txt');
             // });
@@ -289,7 +290,7 @@ router.get('/users/contact-1', function(req, res, next) {
       console.log("File Error ");
       //throw err;
     }
-    return res.send([JSON.parse(data)]);
+    return res.send(JSON.parse(data));
     // var array = data.toString().split("\n");
     // for(i in array) {
     //     console.log(array[i]);
