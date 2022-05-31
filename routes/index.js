@@ -263,7 +263,18 @@ router.post('/users/contact', function(req, res, next) {
 // Replay with info received
 //
 router.get('/users/contact-1', function(req, res, next) { 
-    return res.send([contactsReceived]);
+  
+  var fs = require('fs');
+  fs.readFile('file.txt', function(err, data) {
+    if(err) throw err;
+    return res.send([data]);
+    // var array = data.toString().split("\n");
+    // for(i in array) {
+    //     console.log(array[i]);
+    // }
+  });
+  
+  return res.send([contactsReceived]);
 });
 
 
