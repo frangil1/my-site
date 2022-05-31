@@ -265,7 +265,7 @@ router.post('/users/contact', function(req, res, next) {
 router.get('/users/contact-1', function(req, res, next) { 
   
   var fs = require('fs');
-  fs.readFile('file.txt', function(err, data) {
+  fs.readFile('contacts.txt', function(err, data) {
     if(err) throw err;
     return res.send([data]);
     // var array = data.toString().split("\n");
