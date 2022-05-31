@@ -234,15 +234,34 @@ router.post('/users/contact', function(req, res, next) {
       let key = `${date}-${month}-${year}-${hour}:${min}`;
       textBoxContact[key] = {Name: name, Message: request, ReplayTo: emailaddss};
       contactsReceived[key] = {Name: name, Message: request, ReplayTo: emailaddss};
-      console.log("JSON.object: " , contactsReceived);
+      let newContact = contactsReceived[key];
+      console.log("JSON.object: " , newContact);
+      fs.readFile('contacts.json', function (err, data) {
+        if (err) {
+          fs.appendFile('contacts.json',  JSON.stringify(newContact), function (err) {
+            //   if (err) return console.log(err);
+            //     console.log('Contact > contacts.txt');
+            // });
+            return console.log('File read error: ', err);
+          });
+        }
+        else {
+          var jsonFile = [JSON.parse(data)];
+          jsonFile.push(contactsReceived[key]);    
+          fs.writeFile("contacts.json", JSON.stringify(jsonFile), function(err){
+            if (err) console.log ("Error writing json file"); //throw err;
+            console.log('The "data to append" was appended to file!');
+          });
+        }
+      })
       //textBoxContact = `${textBoxContact}<br/>${message}`;
-      fs.appendFile('contacts.txt', message , function (err) {
-        if (err) return console.log(err);
-          console.log('Contact > contacts.txt');
-      });
-      fs.appendFile('contacts.txt', '\n------------------------------------------------------------\n' , function (err) {
-        if (err) return console.log(err);
-      });
+      // fs.appendFile('contacts.txt', newContact , function (err) {
+      //   if (err) return console.log(err);
+      //     console.log('Contact > contacts.txt');
+      // });
+      // fs.appendFile('contacts.txt', '\n------------------------------------------------------------\n' , function (err) {
+      //   if (err) return console.log(err);
+      // });
       res.render('contact', { title: 'Contact received ', device: userDevice, contact: 'post', req:req});
       var userDevice = isMobile(req); 
       // filename = __dirname + '/fmrk.html' // do something 
@@ -265,16 +284,19 @@ router.post('/users/contact', function(req, res, next) {
 router.get('/users/contact-1', function(req, res, next) { 
   
   var fs = require('fs');
-  fs.readFile('contacts.txt', function(err, data) {
-    if(err) throw err;
-    return res.send([data]);
+  fs.readFile('contacts.json', function(err, data) {
+    if(err) {
+      console.log("File Error ");
+      //throw err;
+    }
+    return res.send([JSON.parse(data)]);
     // var array = data.toString().split("\n");
     // for(i in array) {
     //     console.log(array[i]);
     // }
   });
   
-  return res.send([contactsReceived]);
+  //return res.send([contactsReceived]);
 });
 
 
